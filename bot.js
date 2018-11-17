@@ -56,17 +56,6 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 
 
 
-
-client.on ('guildMemberAdd'، member => {var embed = new Discord.RichEmbed () .setThumbnail (member.user.avatarURL) .addField ("*** شكرا الانضمامك الينا ***"، member.user.username ) .setDescription ('*** بكل حب واحترام وشوق نستقبلك ونتمنى لك قضآء أجمل اللحظات ولآوقات معنا ***') .setColor ('RANDOM') .setImage (' http://www.imgion.com/images/01/ Welcome-buddy.jpg ') var channel = member.guild.channels.find (' ♚chat ') if return (! channel) return؛ channel.send ({embed: embed})؛}؛
-};
-});
-
-
-client.on ("guildMemberAdd"، member => {member.createDM (). then (function (channel) {return channel.send (`: rose: ولكم نورت السيرفر: rose:: crown: اسم العضو $ {member}: تاج: انت العضو رقم $ {member.guild.memberCount} `)}). catch (console.error)})
-};
-});
-
-
 client.on('guildMemberAdd', member => {
   member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
