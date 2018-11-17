@@ -57,7 +57,7 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 
 
 client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('♚chat');
+    let channel = member.guild.channels.find("chat");
     let memberavatar = member.user.avatarURL
       if (!channel) return;
     let embed = new Discord.RichEmbed()
