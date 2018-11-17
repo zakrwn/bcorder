@@ -51,11 +51,31 @@ client.on('message', message => {
 if (message.content.startsWith(adminprefix + 'setavatar')) {
   client.user.setAvatar(argresult);
     message.channel.send(`Changing The Avatar To :**${argresult}** `);
-}
+};
 });
 
 
 
 
+client.on ('guildMemberAdd'، member => {var embed = new Discord.RichEmbed () .setThumbnail (member.user.avatarURL) .addField ("*** شكرا الانضمامك الينا ***"، member.user.username ) .setDescription ('*** بكل حب واحترام وشوق نستقبلك ونتمنى لك قضآء أجمل اللحظات ولآوقات معنا ***') .setColor ('RANDOM') .setImage (' http://www.imgion.com/images/01/ Welcome-buddy.jpg ') var channel = member.guild.channels.find (' ♚chat ') if return (! channel) return؛ channel.send ({embed: embed})؛}؛
+};
+});
+
+
+client.on ("guildMemberAdd"، member => {member.createDM (). then (function (channel) {return channel.send (`: rose: ولكم نورت السيرفر: rose:: crown: اسم العضو $ {member}: تاج: انت العضو رقم $ {member.guild.memberCount} `)}). catch (console.error)})
+};
+});
+
+
+client.on('guildMemberAdd', member => {
+  member.guild.fetchInvites().then(guildInvites => {
+    const ei = invites[member.guild.id];
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+    const stewart = member.guild.channels.find("♚chat");
+     stewart.send(`<@${member.user.id}> تمت الدعوه من <@${inviter.id}>`);
+   //  stewart.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
+  });
+});
 
 client.login(process.env.BOT_TOKEN);
